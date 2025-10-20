@@ -3,9 +3,9 @@ description:
 globs: 
 alwaysApply: true
 ---
-# AI Rules for {app-name}
+# AI Rules for JulklApp
 
-{project-description}
+An app for drawing people to receive a gift on the popular St. Nicholas Day.
 
 ## Tech Stack
 
