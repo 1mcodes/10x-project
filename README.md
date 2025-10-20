@@ -1,94 +1,128 @@
-# 10x Astro Starter
+# JulklApp
 
-A modern, opinionated starter template for building fast, accessible, and AI-friendly web applications.
+[![Version](https://img.shields.io/badge/version-0.0.1-blue.svg)](https://github.com/your-org/your-repo) [![License](https://img.shields.io/badge/license-MIT-green.svg)]
+
+A modern web application to automate Secret Santa events for small groups (3–32 participants). Draw authors can register, create events, enter participant details, then participants receive accounts to view their assigned recipient alongside AI-generated gift suggestions.
+
+## Table of Contents
+
+1. [Project Description](#project-description)  
+2. [Tech Stack](#tech-stack)  
+3. [Getting Started Locally](#getting-started-locally)  
+4. [Available Scripts](#available-scripts)  
+5. [Project Scope](#project-scope)  
+6. [Project Status](#project-status)  
+7. [License](#license)  
+
+## Project Description
+
+JulklApp solves the hassle of organizing Secret Santa by providing:
+
+- Secure email/password authentication for event authors and participants  
+- Participant management with validation (3–32 participants, letter length ≤10 000 chars)  
+- Fair, one-to-one matching algorithm with no self-matches  
+- Auto-provisioned participant accounts and first-time password setup  
+- Row-level security: authors see only their draws; participants see only their match  
+- Dedicated match page showing recipient details and gift preferences  
+- AI-powered gift suggestions via OpenRouter.ai (3 retry attempts, 30 s timeout)  
+- Indefinite caching of AI suggestions with manual refresh  
+- All UI strings wrapped in i18n abstraction (English UI, ready for localization)  
 
 ## Tech Stack
 
-- [Astro](https://astro.build/) v5.5.5 - Modern web framework for building fast, content-focused websites
-- [React](https://react.dev/) v19.0.0 - UI library for building interactive components
-- [TypeScript](https://www.typescriptlang.org/) v5 - Type-safe JavaScript
-- [Tailwind CSS](https://tailwindcss.com/) v4.0.17 - Utility-first CSS framework
+**Frontend**  
+- Astro 5 – static-first pages with minimal JavaScript  
+- React 19 – interactive components  
+- TypeScript 5 – static typing and IDE support  
+- Tailwind CSS 4 – utility-first styling  
+- Shadcn/ui – accessible React component library  
 
-## Prerequisites
+**Backend**  
+- Supabase – PostgreSQL database, SDK, and built-in authentication  
 
-- Node.js v22.14.0 (as specified in `.nvmrc`)
-- npm (comes with Node.js)
+**AI Integration**  
+- OpenRouter.ai – unified access to OpenAI, Anthropic, Google models; API key cost limits  
 
-## Getting Started
+**CI/CD & Hosting**  
+- GitHub Actions – build, lint, test pipelines  
+- DigitalOcean (Docker) – containerized deployment  
 
-1. Clone the repository:
+## Getting Started Locally
+
+### Prerequisites
+
+- Node.js 22.14.0 (see `.nvmrc`)  
+- Git  
+- A Supabase project (URL and ANON key)  
+- OpenRouter API key  
+
+### Setup
 
 ```bash
-git clone https://github.com/przeprogramowani/10x-astro-starter.git
-cd 10x-astro-starter
-```
+# Clone the repository
+git clone https://github.com/1mcodes/10x-project.git
+cd your-repo
 
-2. Install dependencies:
-
-```bash
+# Install dependencies
 npm install
-```
 
-3. Run the development server:
+# Create a .env file in the project root with:
+# SUPABASE_URL=your-supabase-url
+# SUPABASE_ANON_KEY=your-supabase-anon-key
+# OPENROUTER_API_KEY=your-openrouter-api-key
 
-```bash
+# Start the development server
 npm run dev
 ```
 
-4. Build for production:
-
-```bash
-npm run build
-```
+Open `http://localhost:3000` in your browser.
 
 ## Available Scripts
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-- `npm run lint:fix` - Fix ESLint issues
+In the project directory, run:
 
-## Project Structure
+- **`npm run dev`**  
+  Start Astro in development mode (hot-reload).  
 
-```md
-.
-├── src/
-│   ├── layouts/    # Astro layouts
-│   ├── pages/      # Astro pages
-│   │   └── api/    # API endpoints
-│   ├── components/ # UI components (Astro & React)
-│   └── assets/     # Static assets
-├── public/         # Public assets
-```
+- **`npm run build`**  
+  Build the production site.  
 
-## AI Development Support
+- **`npm run preview`**  
+  Preview the production build locally.  
 
-This project is configured with AI development tools to enhance the development experience, providing guidelines for:
+- **`npm run astro`**  
+  Run any Astro CLI command (e.g., `npm run astro -- --help`).  
 
-- Project structure
-- Coding practices
-- Frontend development
-- Styling with Tailwind
-- Accessibility best practices
-- Astro and React guidelines
+- **`npm run lint`**  
+  Lint all files with ESLint.  
 
-### Cursor IDE
+- **`npm run lint:fix`**  
+  Lint and auto-fix issues.  
 
-The project includes AI rules in `.cursor/rules/` directory that help Cursor IDE understand the project structure and provide better code suggestions.
+- **`npm run format`**  
+  Format code with Prettier.  
 
-### GitHub Copilot
+## Project Scope
 
-AI instructions for GitHub Copilot are available in `.github/copilot-instructions.md`
+### In Scope
 
-### Windsurf
+- Email/password authentication for authors and participants  
+- Creation and management of Secret Santa draws (3–32 participants)  
+- AI-driven gift suggestions with retry logic and caching  
+- Row-level security policies in the database  
+- English UI with built-in i18n for future localization  
 
-The `.windsurfrules` file contains AI configuration for Windsurf.
+### Out of Scope
 
-## Contributing
+- Email confirmation workflows  
+- Participant exclusion rules or complex mutual-exclusion validation  
+- Budget management for gifts  
+- Modification or deletion of draws after creation  
 
-Please follow the AI guidelines and coding practices defined in the AI configuration files when contributing to this project.
+## Project Status
+
+The project is currenlty in the MVP stage and under active development.
 
 ## License
 
-MIT
+This project is licensed under the [MIT License](LICENSE).
